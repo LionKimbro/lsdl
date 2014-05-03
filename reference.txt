@@ -1,0 +1,120 @@
+title: API Reference
+
+
+== SDL functions ==
+
+General:
+
+  init() -- initialize; always call
+
+  quit() -- quit the program; causes an eQUIT event
+
+
+Time:
+
+  delay(ms) -- delay so many milliseconds
+
+  ticks() => #ms  -- integer time since init()
+
+
+Windows:
+
+  window(title, width, height)  => window
+
+  wdestroy(window)  -- destroy a window
+
+
+  wupdate(window)  -- update a window from it's surface?  [UNUSED]
+  fullscreen(title)  [UNTESTED]
+  fullscreen_pseudosize(rr, w, h)  [UNTESTED]
+
+Surfaces:
+
+  surface(window) => surface
+
+  sfree(surface)
+
+  save_bmp(surface, renderer, filename)  -- save a surface's contents to a bitmap;
+                                            note that the surface is associated here
+                                            with where the renderer is drawing,
+                                            NOT the presented image
+             (I believe this is how it works, from memory.)
+
+Renderer:
+
+  renderer(window) => renderer
+
+  present(renderer)  -- this is basically a 2-surface flip;
+                        it draws one image, and resumes work on the other
+
+  target(renderer, texture=None)  -- sets the renderer to draw to a given texture,
+                                     or, if None, to draw to where will be presented
+                                     (a texture?)
+
+Textures:
+
+  texture(renderer, width, height)  -- create an 8888 texture
+
+  tdestroy(texture)  -- destroy a texture
+
+  s2t(renderer, surface) => texture  -- create a texture from a surface
+
+  bmpt(renderer, filename) => texture  -- load a BMP into a new texture
+
+
+Drawing:
+
+  rect(x=0, y=0, w=0, h=0)  -- create a rectangle,
+                               for routines that use them
+
+  color(renderer, red, green, blue, alpha=255)  -- set renderer color
+
+  clear(renderer)
+
+  point(renderer, x, y)
+
+  line(renderer, x1, y1, x2, y2)
+
+  box(renderer, x, y, width, height)
+
+  fillbox(renderer, x, y, width, height)
+
+  copy(renderer, src_texture, src=None, dest=None)  -- copy from a source texture;
+                                                       scales src to dest;
+                                                       None = full size of texture
+
+
+Events:
+
+  event()  => Event  -- create a reusable Event object
+
+  poll(evt)  => truthy  -- populate the Event if possible,
+                           return True if it populated
+
+  kcode(evt)  => key code  -- return key code for an event
+
+  pressed(keymod) => True/False  -- RSHIFT, LSHIFT,
+                                    RCTRL, LCTRL,
+                                    RALT, LALT     (valid keymods)
+
+
+== Internal Use Only ==
+
+  enc  -- used in string encoding
+
+
+== Meta Functions ==
+
+search(s) => ["...", "...", "..."]
+             list of sdl2 objects that have names including s
+  (used to discover SDL2)
+
+sdlcodestr(k) => ["...", "...", "..."]
+              list of globals in sdl2.py that have the value k
+  (used to discover SDL2; reverse lookup)
+
+codestr(k) => ["...", "...", "..."]
+              list of globals in lsdl.py that have the value k
+  (used to discover lsdl.py; reverse lookup)
+
+

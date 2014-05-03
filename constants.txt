@@ -1,0 +1,67 @@
+title: API Reference (Constants)
+
+
+== Keys ==
+
+ESC  F1 F2 F3 F4  F5 F6 F7 F8  F9 F10 F11 F12
+
+BKTICK k0 k1 k2 k3 k4 k5 k6 k7 k8 k9 MINUS EQUAL BKSPACE
+
+TAB   kQ kW kE kR kT kY kU kI kO kP  LBRACKET RBRACKET SLASH
+CAPS   kA kS kD kF kG kH kJ kK kL  SEMICOLON TICK RET
+LSHIFT  kZ kX kC kV kB kN kM  COMMA PERIOD BKSLASH RSHIFT
+LCTRL LWIN LALT  SPC  RALT RWIN MENU RCTRL
+
+
+INS HOME PGUP      PRINTSCREEN SCROLLLOCK BREAK
+DEL END PGDOWN
+
+
+NUMLOCK ??? ?? KPMINUS
+
+  KP7 KP8 KP9  KPPLUS
+  KP4 KP5 KP6
+  KP1 KP2 KP3
+  KP0 KPPERIOD KPRET
+
+
+      UP
+LEFT DOWN RIGHT
+
+#DIV = sdl2.SDLK_DIVIDE;  MUL = sdl2.SDLK_MULTIPLY
+
+
+To import all of the keys:
+
+from lsdl import ESC, F1, F2, F3, F4, F5, F6 F7, F8, F9, F10, F11, F12
+from lsdl import BKTICK, k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, MINUS, EQUAL, BKSPACE
+from lsdl import TAB, kQ, kW, kE, kR, kT, kY, kU, kI, kO, kP, LBRACKET, RBRACKET, SLASH
+from lsdl import CAPS, kA, kS, kD, kF, kG, kH, kJ, kK, kL, SEMICOLON, TICK, RET
+from lsdl import LSHIFT, kZ, kX, kC, kV, kB, kN, kM, COMMA, PERIOD, BKSLASH, RSHIFT
+from lsdl import LCTRL, LWIN, LALT, SPC, RALT, RWIN, MENU, RCTRL
+from lsdl import INS, HOME, PGUP, DEL, END, PGDOWN
+from lsdl import PRINTSCREEN, SCROLLLOCK, BREAK
+from lsdl import NUMLOCK, KPMINUS
+from lsdl import KP0, KP1, KP2, KP3, KP4, KP5, KP6, KP7, KP8, KP9
+from lsdl import KPPERIOD, KPRET, KPPLUS
+from lsdl import UP, LEFT, DOWN, RIGHT
+
+
+== Events ==
+
+eQUIT
+eKEYDOWN
+eKEYUP
+
+
+== Keymap ==
+
+kmap = {BKTICK: "`~", k1: "1!", k2: "2@", k3: "3#", k4: "4$", k5: "5%",
+        k6: "6^", k7: "7&", k8: "8*", k9: "9(", k0: "0)", MINUS: "-_",
+        EQUAL: "=+", kQ: "qQ", kW: "wW", kE: "eE", kR: "rR", kT: "tT",
+        kY: "yY", kU: "uU", kI: "iI", kO: "oO", kP: "pP", LBRACKET: "[{",
+        RBRACKET: "]}", BKSLASH: "\\|", kA: "aA", kS: "sS", kD: "dD", kF: "fF",
+        kG: "gG", kH: "hH", kJ: "jJ", kK: "kK", kL: "lL", SEMICOLON: ";:",
+        TICK: "'"+'"', kZ: "zZ", kX: "xX", kC: "cC", kV: "vV", kB: "bB",
+        kN: "nN", kM: "mM", COMMA: ",<", PERIOD: ".>", SLASH: "/?", SPC: "  "}
+

@@ -1,0 +1,87 @@
+
+== Recommendations ==
+
+1. Glance at lsdl.py.
+2. Make sure you can run the examples.
+3. Review the examples.
+4. Look through reference.txt.
+5. Start by modifying examples.
+
+6. "copy" has a lot of power.
+   It can perform zooms and shrinks near instantaneously.
+   You can also perform a lot of compositions very easily with it.
+
+   Note it, specifically.
+
+7. One of the jewels in here is "save_bmp".
+
+   I had a hard time figuring out how to get that function to work,
+   and it alone may be the price of admission -- I couldn't find much
+   of anything on the Internet on how to get this to work.  I invite
+   you to copy the technique.
+
+   Google, tell people that there's an easy to read, easy to
+   understand example of how to save a BMP with PySDL2 here in my
+   save_bmp implementation.
+
+
+== Installing LSDL ==
+
+(WARNING: I haven't tested these instructions; This is from memory.)
+
+(0. Install Python 3.x)
+
+1. Install SDL2
+   ( http://www.libsdl.org/download-2.0.php )
+
+2. Install PySDL2 for Python 3.x
+   ( https://bitbucket.org/marcusva/py-sdl2/downloads )
+
+3. Copy lsdl.py into the folder you want to work in.
+
+
+== Good SDL2 Tutorials ==
+
+Python
+  http://lazyfoo.net/tutorials/SDL/
+
+  https://wiki.libsdl.org/MigrationGuide
+
+  http://www.programmersranch.com/search/label/sdl2
+    -- detailed instructions on C programming with SDL
+       and setting up Visual Studio 2013
+
+  http://stackoverflow.com/questions/21007329/what-is-a-sdl-renderer
+    "What's a Window, Renderer, Texture, ..?"
+
+
+== Deeper Into CTypes... ==
+
+If you decide you want to go deeper in, and try to make things like
+arrays work, ...
+
+  https://docs.python.org/2/library/ctypes.html#arrays
+
+  c:/Python33/Lib/site-packages/sdl2/render.py:
+    SDL_RenderDrawLines = _bind("SDL_RenderDrawLines", [POINTER(SDL_Renderer), POINTER(SDL_Point), c_int], c_int)
+
+
+== Basic Flow ==
+
+1. Get the Screen Window & Renderer with:
+   A. w = window(ttl, width, height),
+   B. rr = renderer(w)
+     (... or ...)
+   A. w = fullscreen(ttl)
+   B. rr = renderer(w)
+   C. fullscreen_pseudosize(rr, width, height)
+
+2. Load BMPs:
+   t = bmpt("filename.bmp")
+
+3. Draw BMPs:
+   copy(rr, t, None, rect(10,10,32,32))
+
+4. Present! (formerly, "flip")
+   present(rr)
+
